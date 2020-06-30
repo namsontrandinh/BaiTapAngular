@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "homeWorkAngular"
+    }
+  },
+  "defaultProject": "homeWorkAngular",
+  "cli": {
+    "analytics": "e31c6703-b893-48d6-ab0b-6d64f729a665"
+  }
 }

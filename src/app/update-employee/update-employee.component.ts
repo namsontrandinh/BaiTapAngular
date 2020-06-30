@@ -1,14 +1,14 @@
 import { EmployeeService } from './../employee.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from './../employee';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-employee-details',
-  templateUrl: './employee-details.component.html',
-  styleUrls: ['./employee-details.component.css']
+  selector: 'app-update-employee',
+  templateUrl: './update-employee.component.html',
+  styleUrls: ['./update-employee.component.css']
 })
-export class EmployeeDetailsComponent implements OnInit {
+export class UpdateEmployeeComponent implements OnInit {
   id: number;
   employee: Employee;
 
@@ -28,8 +28,10 @@ export class EmployeeDetailsComponent implements OnInit {
   }
 
   updateEmployee() {
-    this.employeeService.updateEmployee(this.id, this.employee)
-      .subscribe(data => console.log(data), error => console.log(error));
+    this.employeeService.updateEmployee(this.id, this.employee).subscribe(
+      data => console.log(data), 
+      error => console.log(error)
+    );
     this.employee = new Employee();
     this.gotoList();
   }

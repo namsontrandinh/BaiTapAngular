@@ -21,11 +21,24 @@ export class EmployeeListComponent implements OnInit {
     this.reloadData();
   }
 
-  reloadData(){
+  reloadData() {
     this.employeeService.getEmployeesList().subscribe(
       (data) => {
-        this.employees = data.data;
+        this.employees = data;
       }
     );
+  }
+
+  deleteEmployee(id) {
+    this.employeeService.deleteEmployee(id).subscribe(
+      (data) => {
+        console.log("xóa thành công");
+        this.reloadData();
+      }
+    );
+  }
+
+  employeeUpdate(id: number) {
+    this.router.navigate(['update', id]);
   }
 }

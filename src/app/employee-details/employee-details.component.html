@@ -1,1 +1,21 @@
-<p>employee-details works!</p>
+<h3>Update Employee</h3>
+<div [hidden]="" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Ten</label>
+      <input type="text" class="form-control" id="firstName" required [(ngModel)]="employee.employee_name" name="firstName">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Luong</label>
+      <input type="text" class="form-control" id="lastName" required [(ngModel)]="employee.employee_salary" name="lastName">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Tuoi</label>
+      <input type="text" class="form-control" id="emailId" required [(ngModel)]="employee.employee_age" name="emailId">
+    </div>
+
+    <button type="submit" class="btn btn-success">Luu</button>
+  </form>
+</div>

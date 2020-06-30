@@ -19,8 +19,9 @@
             <td>{{employee.employee_name}}</td>
             <td>{{employee.employee_salary}}</td>
             <td>{{employee.employee_age}}</td>
-            <td><button class="btn btn-danger">Delete</button>
-                <button class="btn btn-info" style="margin-left: 10px">Details</button>
+            <td>
+                <button (click)="employeeUpdate(employee.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+                <button (click)="deleteEmployee(employee.id)" class="btn btn-danger" style="margin-left: 10px">Delete</button>
             </td>
           </tr>
         </tbody>
