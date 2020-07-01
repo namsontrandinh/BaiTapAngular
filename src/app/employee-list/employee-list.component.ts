@@ -1,6 +1,8 @@
+import { CreateEmployeeComponent } from './../create-employee/create-employee.component';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from "rxjs";
+// import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 import { EmployeeDetailsComponent } from '../employee-details/employee-details.component';
 import { EmployeeService } from "../employee.service";
@@ -41,4 +43,13 @@ export class EmployeeListComponent implements OnInit {
   employeeUpdate(id: number) {
     this.router.navigate(['update', id]);
   }
+
+  // addOrEdit(index) {
+  //   const dialogConfig = new MatDialogConfig();
+  //   dialogConfig.autoFocus = true;
+  //   dialogConfig.disableClose = true;
+  //   dialogConfig.width = "50%";
+  //   dialogConfig.data = { index };
+  //   this.dialog.open(CreateEmployeeComponent, dialogConfig);
+  // }
 }
