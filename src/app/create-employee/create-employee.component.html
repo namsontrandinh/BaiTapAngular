@@ -7,23 +7,23 @@
         </div> -->
         <div class="form-group">
             <label for="name">Ten</label>
-            <input type="text" class="form-control" id="employee_name" name="employee_name"
+            <input type="text" class="form-control" id="employee_name" name="employee_name" [(ngModel)]="employee.employee_name"
                 formControlName="employee_name">
         </div>
         <div class="form-group">
             <label for="name">Luong</label>
-            <input type="text" class="form-control" id="employee_salary" name="employee_salary"
+            <input type="text" class="form-control" id="employee_salary" name="employee_salary" [(ngModel)]="employee.employee_salary"
                 formControlName="employee_salary">
         </div>
         <div class="form-group">
             <label for="name">Tuoi</label>
-            <input type="text" class="form-control" id="employee_age" name="employee_age"
+            <input type="text" class="form-control" id="employee_age" name="employee_age" [(ngModel)]="employee.employee_age"
                 formControlName="employee_age">
         </div>
         <button type="submit" class="btn btn-success" [disabled]="userFormGroup.status=='INVALID'">Luu</button>
-        <p>Form value: {{userFormGroup.value | json}}</p>
+        <!-- <p>Form value: {{userFormGroup.value | json}}</p>
         <p>Form status: {{userFormGroup.status | json}}</p>
         <p>Form untouched: {{userFormGroup.untouched | json}}</p>
-        <p>Form dirty: {{userFormGroup.dirty | json}}</p>
+        <p>Form dirty: {{userFormGroup.dirty | json}}</p> -->
     </form>
 </div>

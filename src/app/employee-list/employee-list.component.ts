@@ -1,3 +1,4 @@
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CreateEmployeeComponent } from './../create-employee/create-employee.component';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -14,10 +15,14 @@ import { Employee } from "../employee";
   styleUrls: ['./employee-list.component.css']
 })
 export class EmployeeListComponent implements OnInit {
+  userFormGroup: FormGroup;
   employees: Employee[];
+  objectFilter: Employee = new Employee();
 
   constructor(private employeeService: EmployeeService,
-    private router: Router) { }
+    private router: Router, private formBuilder: FormBuilder) {
+    this.createForm();
+  }
 
   ngOnInit(): void {
     this.reloadData();
@@ -44,12 +49,26 @@ export class EmployeeListComponent implements OnInit {
     this.router.navigate(['update', id]);
   }
 
-  // addOrEdit(index) {
-  //   const dialogConfig = new MatDialogConfig();
-  //   dialogConfig.autoFocus = true;
-  //   dialogConfig.disableClose = true;
-  //   dialogConfig.width = "50%";
-  //   dialogConfig.data = { index };
-  //   this.dialog.open(CreateEmployeeComponent, dialogConfig);
-  // }
+  createForm() {
+    this.userFormGroup = this.formBuilder.group({
+      employee_name: ['', Validators.required],
+      employee_salary: ['', Validators.required],
+      employee_age: ['', Validators.required],
+    });
+  }
+
+  filter = {
+    employee_name: 'Dang Van Tuan',
+    employee_age: '29'
+  };
+
+  onSubmit() {
+    this.employees= this.employees.filter(function(item) {
+      for (var key in this.filter) {
+        if (item[key] === undefined || item[key] != this.filter[key])
+          return false;
+      }
+      return true;
+    });
+  }
 }

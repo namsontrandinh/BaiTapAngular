@@ -1,33 +1,57 @@
 <div class="panel panel-primary">
-  <div class="panel-heading">
-    <h2>Employee List</h2>
-  </div>
-  <div class="panel-body">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Ten</th>
-          <th>Luong</th>
-          <th>Tuoi</th>
-          <th>Thao tac</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let employee of employees">
-          <td>{{employee.id}}</td>
-          <td>{{employee.employee_name}}</td>
-          <td>{{employee.employee_salary}}</td>
-          <td>{{employee.employee_age}}</td>
-          <td>
-            <button (click)="employeeUpdate(employee.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
-            <button (click)="deleteEmployee(employee.id)" class="btn btn-danger"
-              style="margin-left: 10px">Delete</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    <div class="panel-heading">
+        <h2>Tim Kiem</h2>
+    </div>
+    <div>
+        <form [formGroup]="userFormGroup" novalidate (ngSubmit)="onSubmit()">
+            <!-- <div class="form-group">
+                <label for="name"></label>
+                <input type="text" class="form-control" id="id" required [(ngModel)]="employee.id" name="id">
+            </div> -->
+            <div class="form-group">
+                <label for="name">Ten</label>
+                <input type="text" class="form-control" id="employee_name" name="employee_name" [(ngModel)]="objectFilter.employee_name"
+                    formControlName="employee_name">
+            </div>
+            <div class="form-group">
+                <label for="name">Tuoi</label>
+                <input type="text" class="form-control" id="employee_age" name="employee_age" [(ngModel)]="objectFilter.employee_age"
+                    formControlName="employee_age">
+            </div>
+            <button type="submit" class="btn btn-success">Tim Kiem</button>
+            <!-- <p>Form value: {{userFormGroup.value | json}}</p>
+            <p>Form status: {{userFormGroup.status | json}}</p>
+            <p>Form untouched: {{userFormGroup.untouched | json}}</p>
+            <p>Form dirty: {{userFormGroup.dirty | json}}</p> -->
+        </form>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Ten</th>
+                    <th>Luong</th>
+                    <th>Tuoi</th>
+                    <th>Thao tac</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employee of employees">
+                    <td>{{employee.id}}</td>
+                    <td>{{employee.employee_name}}</td>
+                    <td>{{employee.employee_salary}}</td>
+                    <td>{{employee.employee_age}}</td>
+                    <td>
+                        <button (click)="employeeUpdate(employee.id)" class="btn btn-info"
+                            style="margin-left: 10px">Update</button>
+                        <button (click)="deleteEmployee(employee.id)" class="btn btn-danger"
+                            style="margin-left: 10px">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 
